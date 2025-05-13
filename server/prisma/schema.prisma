@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Course {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  title             String
+  instructor        String
+  description       String
+  importance        String
+  duration          String
+  classesPerWeek    Int
+  totalClasses      Int
+  mode              String
+  modules           Module[]
+  assessmentDetails String
+  internshipDetails String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Feedback {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  timestamp             DateTime @default(now()) // Auto-generated timestamp
+  emailAddress          String
+  name                  String
+  email                 String
+  contactNumber         String
+  feedbackFor           String // Feedback for panel discussion
+  panelDiscussionRating Int // Rating for the panel discussion (can be an integer scale, e.g., 1-5)
+  collegeAndCourse      String // College and course enrolled
+  createdAt             DateTime @default(now()) // Date when feedback is created
+  updatedAt             DateTime @updatedAt // Date when feedback is updated
+}
+
+model Mentor {
+  id                   String      @id @default(auto()) @map("_id") @db.ObjectId
+  profileImageUrl      String?
+  name                 String
+  profileSummary       String
+  about                String
+  areasOfPractice      String[]
+  courtsOfPractice     String[]
+  experienceHighlights String[]
+  pastRoles            PastRole[]
+  keyClients           Client[]
+  education            Education[]
+  technicalSkills      String[]
+  languagesKnown       String[]
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+}
+
+model Module {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  topics   String[]
+  courseId String   @db.ObjectId
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+type PastRole {
+  title            String
+  responsibilities String[]
+}
+
+type Client {
+  title       String
+  description String?
+}
+
+type Education {
+  degree      String
+  institution String
+  duration    String?
+}
