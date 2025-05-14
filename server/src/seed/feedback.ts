@@ -9,7 +9,8 @@ async function main() {
             contactNumber: '9876543210',
             panelDiscussionFeedback: 'Very insightful discussion, learned a lot about legal tech.',
             panelDiscussionRating: 5,
-            collegeAndCourseEnrolled: 'NALSAR University - B.A. LL.B.',
+            feedbackFor: 'Panel Discussion',
+            collegeAndCourse: 'NALSAR University - B.A. LL.B.',
         },
         {
             emailAddress: 'jane.smith@example.com',
@@ -18,7 +19,8 @@ async function main() {
             contactNumber: '9123456780',
             panelDiscussionFeedback: 'Good panel, but would love more practical examples.',
             panelDiscussionRating: 4,
-            collegeAndCourseEnrolled: 'Symbiosis Law School - BBA LL.B.',
+            feedbackFor: 'Panel Discussion',
+            collegeAndCourse: 'Symbiosis Law School - BBA LL.B.',
         },
         {
             emailAddress: 'alice.wonder@example.com',
@@ -27,7 +29,8 @@ async function main() {
             contactNumber: '9988776655',
             panelDiscussionFeedback: 'Excellent discussion with clear takeaways.',
             panelDiscussionRating: 5,
-            collegeAndCourseEnrolled: 'Jindal Global Law School - LL.M.',
+            feedbackFor: 'Panel Discussion',
+            collegeAndCourse: 'Jindal Global Law School - LL.M.',
         },
         {
             emailAddress: 'bob.marley@example.com',
@@ -36,7 +39,8 @@ async function main() {
             contactNumber: '9000012345',
             panelDiscussionFeedback: 'Informative, but could be more interactive.',
             panelDiscussionRating: 3,
-            collegeAndCourseEnrolled: 'ILS Law College - BSL LL.B.',
+            feedbackFor: 'Panel Discussion',
+            collegeAndCourse: 'ILS Law College - BSL LL.B.',
         },
         {
             emailAddress: 'charlie.brown@example.com',
@@ -45,7 +49,8 @@ async function main() {
             contactNumber: '9765432109',
             panelDiscussionFeedback: 'Loved the panelists and the depth of the discussion!',
             panelDiscussionRating: 5,
-            collegeAndCourseEnrolled: 'Faculty of Law, DU - LL.B.',
+            feedbackFor: 'Panel Discussion',
+            collegeAndCourse: 'Faculty of Law, DU - LL.B.',
         },
     ];
 

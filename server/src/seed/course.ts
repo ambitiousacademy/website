@@ -13,80 +13,90 @@ async function main() {
             mode: 'Online (Live Classes)',
             assessmentDetails: `Theoretical exams, real-world drafting exercises, and case studies for a comprehensive evaluation.`,
             internshipDetails: `Top-performing students will be offered internships with reputed law firms or departments.`,
+            price: 0, // Add a default price or your desired value
+            image: '', // Add a default image URL or your desired value
+            rating: 0, // Add a default rating or your desired value
             modules: {
                 create: [
                     {
                         title: 'Introduction to Legal Drafting',
-                        topics: [
+                        lessons: [
                             'Overview of Legal Drafting',
                             'General Drafting Principles',
                             'Legal Language & Terminologies'
-                        ]
+                        ],
+                        duration: '1 Week',
                     },
                     {
                         title: 'Civil Pleadings',
-                        topics: [
+                        lessons: [
                             'Suits for Recovery',
                             'Affidavits',
                             'Applications for Temporary Injunction'
-                        ]
+                        ],
+                        duration: '2 Weeks',
                     },
                     {
                         title: 'Matrimonial Pleadings',
-                        topics: [
+                        lessons: [
                             'Divorce, Custody, Maintenance',
                             'Family Law Documents'
-                        ]
+                        ],
+                        duration: '1 Week',
                     },
                     {
                         title: 'Succession Act Drafting',
-                        topics: [
+                        lessons: [
                             'Succession Pleadings',
                             'Wills & Codicils'
-                        ]
+                        ],
+                        duration: '2 Weeks',
                     },
                     {
                         title: 'Constitutional Law Pleadings',
-                        topics: [
+                        lessons: [
                             'Constitutional Petitions & Writs',
                             'Fundamental Rights'
-                        ]
+                        ],
+                        duration: '2 Weeks',
                     },
                     {
                         title: 'Criminal Law Pleadings',
-                        topics: [
+                        lessons: [
                             'FIRs, Complaints, Bail Applications',
                             'Criminal Petitions'
                         ]
+                        , duration: '2 Weeks',
                     },
                     {
                         title: 'Conveyancing: Sale, Lease, Mortgage',
-                        topics: [
+                        lessons: [
                             'Sale Deed',
                             'Lease Deed',
                             'Mortgage Deed'
-                        ]
+                        ],
+                        duration: '2 Weeks',
                     },
                     {
                         title: 'Power of Attorney & Partnership',
-                        topics: [
+                        lessons: [
                             'General & Special Power of Attorney',
                             'Partnership Agreements'
-                        ]
+                        ], duration: '1 Week',
                     },
                     {
                         title: 'Miscellaneous Deeds',
-                        topics: [
+                        lessons: [
                             'Gift & Relinquishment Deeds',
                             'Dissolution of Partnership'
-                        ]
+                        ], duration: '1 Week',
                     },
                     {
                         title: 'Legal Notices',
-                        topics: [
+                        lessons: [
                             'Legal Notices for Real Estate',
                             'Breach of Contract, Demand Notices'
-                        ]
+                        ], duration: '1 Week',
                     }
                 ]
             }
