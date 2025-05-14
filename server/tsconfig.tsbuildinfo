@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/lib/prisma.ts","./src/middleware/clerk.ts","./src/routes/admin.ts","./src/routes/course.ts","./src/routes/feedback.ts","./src/routes/mentor.ts","./src/seed/course.ts","./src/seed/feedback.ts","./src/seed/mentor.ts"],"version":"5.8.3"}

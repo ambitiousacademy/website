@@ -11,7 +11,8 @@ datasource db {
 model Course {
   id                String   @id @default(auto()) @map("_id") @db.ObjectId
   title             String
-  instructor        String
+  instructor        Mentor   @relation("MentorCourses", fields: [instructorId], references: [id])
+  instructorId      String   @db.ObjectId
   description       String
   importance        String
   duration          String
@@ -57,6 +58,7 @@ model Mentor {
   education            Education[]
   technicalSkills      String[]
   languagesKnown       String[]
+  courses              Course[]    @relation("MentorCourses")
   createdAt            DateTime    @default(now())
   updatedAt            DateTime    @updatedAt
 }
