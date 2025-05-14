@@ -2,11 +2,25 @@ import prisma from '../lib/prisma';
 
 async function main() {
 
+  const mentor1 = await prisma.mentor.findFirst({
+    where:{
+      name: "Adv. Shashank Mishra",
+    }
+  })
+
+  const mentor2 = await prisma.mentor.findFirst({
+    where:{
+      name: "Adv. Shagufta Rehman"
+    }
+  })
+
+
+
   await prisma.course.create({
     data: {
       title: 'Certificate Course in Drafting and Conveyancing',
       instructor: {
-        connect: { id: '6824bc4f39b98dc2ad18e0f4' },
+        connect: { id: mentor2.id },
       },
       description:
         'Focuses on skills in legal drafting and conveyancing for judiciary, litigation, and corporate law aspirants.',
@@ -14,6 +28,7 @@ async function main() {
         'Vital for real estate, litigation, corporate law, and judiciary preparation. Enhances legal clarity and precision.',
       duration: '6 Weeks',
       classesPerWeek: 4,
+      featured: true,
       totalClasses: 20,
       mode: 'Online (Live Classes)',
       assessmentDetails: `Theoretical exams, real-world drafting exercises, and case studies for a comprehensive evaluation.`,
@@ -85,7 +100,7 @@ async function main() {
     data: {
       title: 'Course on RERA and Real Estate Law',
       instructor: {
-        connect: { id: '6824bda55458f57cb8a56d06' },
+        connect: { id: mentor1.id },
       },
       description:
         'The Real Estate (Regulation and Development) Act, 2016 (RERA) has revolutionized the real estate sector in India, ensuring transparency, accountability, and protection of consumer interests.',
@@ -93,6 +108,7 @@ async function main() {
         'Knowledge of RERA and related legal frameworks has become crucial for professionals, investors, and students in law and business. This course equips learners with a deep understanding of RERA’s legal, regulatory, and compliance aspects.',
       duration: '2 Months',
       classesPerWeek: 3,
+      featured:true,
       totalClasses: 25,
       mode: '100% online with live lectures and recorded sessions',
       assessmentDetails: `Weekly quizzes and assignments, case study-based evaluations, and a final assessment with MCQs and legal drafting.`,

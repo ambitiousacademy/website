@@ -9,6 +9,7 @@ async function main() {
         'Advocate Shashank Mishra is a legal consultant and practicing advocate with over 8 years of professional experience. His practice is result-oriented, focusing on ethical and professional legal consultancy and advisory services.',
       about:
         'Advocate Shashank Mishra is a legal consultant and practicing advocate with over 8 years of professional experience. His practice is result-oriented, focusing on ethical and professional legal consultancy and advisory services.',
+        featured:true,
       areasOfPractice: [
         'Real Estate (RERA matters, project registration, homebuyer complaints)',
         'Litigation & Arbitration',
@@ -64,6 +65,7 @@ async function main() {
       profileSummary: 'Adv. Shagufta Rehman is a legal professional with over 9 years of experience in litigation, legal research, drafting, and corporate legal advisory.',
       about:
         'Advocate Shagufta Rehman is a legal professional with over 9 years of experience in litigation, legal research, drafting, and corporate legal advisory. She has expertise in problem-solving, document evaluation, legal auditing, and interpretation of laws.',
+        featured:true,
       areasOfPractice: [
         'Criminal Appeals & Bail Matters',
         'Electricity Act & Corporate Law',

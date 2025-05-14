@@ -26,7 +26,12 @@ router.post('/', async (req, res) => {
 
 // Get all courses
 router.get('/', async (req, res) => {
-  const courses = await prisma.course.findMany({ include: { modules: true } });
+  const courses = await prisma.course.findMany({
+    include: {
+      modules: true,
+      instructor:true
+    },
+  });
   res.json(courses);
 });
 
@@ -34,7 +39,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req: any, res: any) => {
   const course = await prisma.course.findUnique({
     where: { id: req.params.id },
-    include: { modules: true },
+    include: { modules: true, instructor:true },
   });
   if (!course) return res.status(404).json({ error: 'Course not found' });
   res.json(course);

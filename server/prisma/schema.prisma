@@ -16,6 +16,7 @@ model Course {
   description       String
   importance        String
   duration          String
+  featured         Boolean   @default(false)
   price             Int
   discount          Int?
   image             String
@@ -50,6 +51,7 @@ model Mentor {
   name                 String
   profileSummary       String
   about                String
+  featured             Boolean     @default(false)
   areasOfPractice      String[]
   courtsOfPractice     String[]
   experienceHighlights String[]
