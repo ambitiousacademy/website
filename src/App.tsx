@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +23,7 @@ import AdminBlogPage from "./pages/admin/AdminBlogPage";
 import AdminInstructorsPage from "./pages/admin/AdminInstructorsPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import AdminLoginPage from "./pages/admin/AdminLoginPage";
+import AdminRoute from "./components/AdminRoute";
 
 const queryClient = new QueryClient();
 
@@ -44,15 +44,59 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            
-            {/* Admin Routes */}
+
             <Route path="/admin/login" element={<AdminLoginPage />} />
-            <Route path="/admin" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
-            <Route path="/admin/courses" element={<AdminLayout><AdminCoursesPage /></AdminLayout>} />
-            <Route path="/admin/blog" element={<AdminLayout><AdminBlogPage /></AdminLayout>} />
-            <Route path="/admin/instructors" element={<AdminLayout><AdminInstructorsPage /></AdminLayout>} />
-            <Route path="/admin/settings" element={<AdminLayout><AdminSettingsPage /></AdminLayout>} />
-            
+
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminLayout>
+                    <AdminDashboard />
+                  </AdminLayout>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/courses"
+              element={
+                <AdminRoute>
+                  <AdminLayout>
+                    <AdminCoursesPage />
+                  </AdminLayout>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/blog"
+              element={
+                <AdminRoute>
+                  <AdminLayout>
+                    <AdminBlogPage />
+                  </AdminLayout>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/instructors"
+              element={
+                <AdminRoute>
+                  <AdminLayout>
+                    <AdminInstructorsPage />
+                  </AdminLayout>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/settings"
+              element={
+                <AdminRoute>
+                  <AdminLayout>
+                    <AdminSettingsPage />
+                  </AdminLayout>
+                </AdminRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

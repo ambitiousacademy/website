@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { 
-  Table, TableHeader, TableRow, TableHead, TableBody, TableCell 
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { 
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -48,34 +53,41 @@ interface AdminCourse {
 
 const AdminCoursesPage = () => {
   const [selectedTab, setSelectedTab] = useState("all");
-  
-  // Convert imported courses to our internal type with guaranteed featured property
-  // and ensure modules match our expected structure
-  const initialCourses: AdminCourse[] = courses.map(course => {
-    // Create a properly typed version of each course
+
+  const initialCourses: AdminCourse[] = courses.map((course) => {
     const adminCourse: AdminCourse = {
       ...course,
       featured: course.featured || false,
+      modules:
+        course.modules?.map((module) => ({
+          ...module,
+          lessons: module.lessons.map((lesson) =>
+            typeof lesson === "string"
+              ? { title: lesson, duration: "Unknown" }
+              : lesson
+          ),
+        })) || [],
     };
     return adminCourse;
   });
-  
+
   const [coursesData, setCoursesData] = useState<AdminCourse[]>(initialCourses);
   const [isEditing, setIsEditing] = useState(false);
   const [currentCourse, setCurrentCourse] = useState<AdminCourse | null>(null);
   const { toast } = useToast();
 
-  const filteredCourses = selectedTab === "all" 
-    ? coursesData 
-    : selectedTab === "featured" 
-      ? coursesData.filter(c => c.featured) 
-      : coursesData.filter(c => !c.featured);
+  const filteredCourses =
+    selectedTab === "all"
+      ? coursesData
+      : selectedTab === "featured"
+      ? coursesData.filter((c) => c.featured)
+      : coursesData.filter((c) => !c.featured);
 
   const handleSaveCourse = () => {
     if (!currentCourse) return;
-    
-    setCoursesData(prev => {
-      const index = prev.findIndex(c => c.id === currentCourse.id);
+
+    setCoursesData((prev) => {
+      const index = prev.findIndex((c) => c.id === currentCourse.id);
       const newCourses = [...prev];
       if (index !== -1) newCourses[index] = currentCourse;
       return newCourses;
@@ -83,7 +95,7 @@ const AdminCoursesPage = () => {
   };
 
   const handleEditCourse = (course: AdminCourse) => {
-    setCurrentCourse({...course});
+    setCurrentCourse({ ...course });
     setIsEditing(true);
   };
 
@@ -92,19 +104,22 @@ const AdminCoursesPage = () => {
     setCurrentCourse(null);
   };
 
-  const handleFieldChange = (field: string, value: string | number | boolean) => {
+  const handleFieldChange = (
+    field: string,
+    value: string | number | boolean
+  ) => {
     if (!currentCourse) return;
     setCurrentCourse({
       ...currentCourse,
-      [field]: value
+      [field]: value,
     });
   };
 
   const handleDelete = (id: string) => {
-    setCoursesData(prev => prev.filter(course => course.id !== id));
+    setCoursesData((prev) => prev.filter((course) => course.id !== id));
     toast({
       title: "Course deleted",
-      description: "The course has been permanently removed."
+      description: "The course has been permanently removed.",
     });
   };
 
@@ -113,14 +128,20 @@ const AdminCoursesPage = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Courses</h1>
-          <p className="text-muted-foreground">Manage and organize your courses</p>
+          <p className="text-muted-foreground">
+            Manage and organize your courses
+          </p>
         </div>
         <Button className="flex items-center gap-2">
           <PlusCircle className="h-4 w-4" /> Add Course
         </Button>
       </div>
-      
-      <Tabs defaultValue="all" value={selectedTab} onValueChange={setSelectedTab}>
+
+      <Tabs
+        defaultValue="all"
+        value={selectedTab}
+        onValueChange={setSelectedTab}
+      >
         <div className="flex items-center justify-between">
           <TabsList>
             <TabsTrigger value="all">All</TabsTrigger>
@@ -128,7 +149,7 @@ const AdminCoursesPage = () => {
             <TabsTrigger value="not-featured">Not Featured</TabsTrigger>
           </TabsList>
         </div>
-        
+
         <TabsContent value="all" className="mt-6">
           <Table>
             <TableHeader>
@@ -147,17 +168,21 @@ const AdminCoursesPage = () => {
                 <TableRow key={course.id}>
                   <TableCell>
                     {course.featured ? (
-                      <Badge className="bg-green-100 text-green-800 font-medium">Featured</Badge>
+                      <Badge className="bg-green-100 text-green-800 font-medium">
+                        Featured
+                      </Badge>
                     ) : (
-                      <Badge variant="outline" className="font-normal">No</Badge>
+                      <Badge variant="outline" className="font-normal">
+                        No
+                      </Badge>
                     )}
                   </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="h-10 w-10 rounded-md object-cover" 
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="h-10 w-10 rounded-md object-cover"
                       />
                       <span className="font-medium">{course.title}</span>
                     </div>
@@ -168,15 +193,15 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleEditCourse(course)}
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleDelete(course.id)}
                       >
@@ -189,7 +214,7 @@ const AdminCoursesPage = () => {
             </TableBody>
           </Table>
         </TabsContent>
-        
+
         <TabsContent value="featured" className="mt-6">
           <Table>
             <TableHeader>
@@ -207,10 +232,10 @@ const AdminCoursesPage = () => {
                 <TableRow key={course.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="h-10 w-10 rounded-md object-cover" 
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="h-10 w-10 rounded-md object-cover"
                       />
                       <span className="font-medium">{course.title}</span>
                     </div>
@@ -221,15 +246,15 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleEditCourse(course)}
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleDelete(course.id)}
                       >
@@ -242,7 +267,7 @@ const AdminCoursesPage = () => {
             </TableBody>
           </Table>
         </TabsContent>
-        
+
         <TabsContent value="not-featured" className="mt-6">
           <Table>
             <TableHeader>
@@ -260,10 +285,10 @@ const AdminCoursesPage = () => {
                 <TableRow key={course.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">
-                      <img 
-                        src={course.image} 
-                        alt={course.title} 
-                        className="h-10 w-10 rounded-md object-cover" 
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="h-10 w-10 rounded-md object-cover"
                       />
                       <span className="font-medium">{course.title}</span>
                     </div>
@@ -274,15 +299,15 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleEditCourse(course)}
                       >
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="icon"
                         onClick={() => handleDelete(course.id)}
                       >
@@ -296,7 +321,7 @@ const AdminCoursesPage = () => {
           </Table>
         </TabsContent>
       </Tabs>
-      
+
       <Dialog open={isEditing} onOpenChange={(open) => !open && closeDialog()}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
@@ -305,94 +330,106 @@ const AdminCoursesPage = () => {
               Make changes to the course information here.
             </DialogDescription>
           </DialogHeader>
-          
+
           {currentCourse && (
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="title">Title</Label>
-                  <Input 
-                    id="title" 
-                    value={currentCourse.title} 
-                    onChange={(e) => handleFieldChange('title', e.target.value)}
+                  <Input
+                    id="title"
+                    value={currentCourse.title}
+                    onChange={(e) => handleFieldChange("title", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="instructor">Instructor</Label>
-                  <Input 
-                    id="instructor" 
-                    value={currentCourse.instructor} 
-                    onChange={(e) => handleFieldChange('instructor', e.target.value)}
+                  <Input
+                    id="instructor"
+                    value={currentCourse.instructor}
+                    onChange={(e) =>
+                      handleFieldChange("instructor", e.target.value)
+                    }
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="price">Price ($)</Label>
-                  <Input 
-                    id="price" 
-                    type="number" 
-                    value={currentCourse.price.toString()} 
-                    onChange={(e) => handleFieldChange('price', parseFloat(e.target.value))}
+                  <Input
+                    id="price"
+                    type="number"
+                    value={currentCourse.price.toString()}
+                    onChange={(e) =>
+                      handleFieldChange("price", parseFloat(e.target.value))
+                    }
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="duration">Duration</Label>
-                  <Input 
-                    id="duration" 
-                    value={currentCourse.duration} 
-                    onChange={(e) => handleFieldChange('duration', e.target.value)}
+                  <Input
+                    id="duration"
+                    value={currentCourse.duration}
+                    onChange={(e) =>
+                      handleFieldChange("duration", e.target.value)
+                    }
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="level">Level</Label>
-                  <Input 
-                    id="level" 
-                    value={currentCourse.level} 
-                    onChange={(e) => handleFieldChange('level', e.target.value)}
+                  <Input
+                    id="level"
+                    value={currentCourse.level}
+                    onChange={(e) => handleFieldChange("level", e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="image">Image URL</Label>
-                  <Input 
-                    id="image" 
-                    value={currentCourse.image} 
-                    onChange={(e) => handleFieldChange('image', e.target.value)}
+                  <Input
+                    id="image"
+                    value={currentCourse.image}
+                    onChange={(e) => handleFieldChange("image", e.target.value)}
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="description">Description</Label>
-                <Textarea 
-                  id="description" 
-                  value={currentCourse.description} 
-                  onChange={(e) => handleFieldChange('description', e.target.value)}
+                <Textarea
+                  id="description"
+                  value={currentCourse.description}
+                  onChange={(e) =>
+                    handleFieldChange("description", e.target.value)
+                  }
                   rows={4}
                 />
               </div>
-              
+
               <div className="flex items-center space-x-2">
-                <Switch 
-                  id="featured" 
-                  checked={currentCourse.featured} 
-                  onCheckedChange={(checked) => handleFieldChange('featured', checked)}
+                <Switch
+                  id="featured"
+                  checked={currentCourse.featured}
+                  onCheckedChange={(checked) =>
+                    handleFieldChange("featured", checked)
+                  }
                 />
                 <Label htmlFor="featured">Featured Course</Label>
               </div>
             </div>
           )}
-          
+
           <DialogFooter>
             <Button variant="outline" onClick={closeDialog}>
               Cancel
             </Button>
-            <Button onClick={() => {
-              handleSaveCourse();
-              closeDialog();
-              toast({
-                title: "Course updated",
-                description: "Your changes have been saved successfully."
-              });
-            }}>
+            <Button
+              onClick={() => {
+                handleSaveCourse();
+                closeDialog();
+                toast({
+                  title: "Course updated",
+                  description: "Your changes have been saved successfully.",
+                });
+              }}
+            >
               Save Changes
             </Button>
           </DialogFooter>

@@ -36,7 +36,9 @@ interface BlogPost {
 
 const AdminBlogPage = () => {
   const [statusFilter, setStatusFilter] = useState("all");
-  // Convert imported blog posts to our internal type with guaranteed featured property
+
+  
+
   const initialPosts = blogPosts.map(post => ({
     ...post,
     featured: post.featured || false
