@@ -7,6 +7,9 @@ interface Module {
   }
   
   interface Course {
+    category: string
+    students: number
+    level: string
     id: string
     title: string
     instructor: string

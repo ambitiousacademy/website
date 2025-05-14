@@ -11,7 +11,6 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import NotFound from './pages/NotFound';
 
@@ -22,7 +21,6 @@ import AdminCoursesPage from './pages/admin/AdminCoursesPage';
 import AdminBlogPage from './pages/admin/AdminBlogPage';
 import AdminInstructorsPage from './pages/admin/AdminInstructorsPage';
 import AdminSettingsPage from './pages/admin/AdminSettingsPage';
-import AdminLoginPage from './pages/admin/AdminLoginPage';
 import AdminRoute from './components/AdminRoute';
 
 const queryClient = new QueryClient();
@@ -42,11 +40,7 @@ const App = () => (
             <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-
-            <Route path="/admin/login" element={<AdminLoginPage />} />
-
             <Route
               path="/admin"
               element={

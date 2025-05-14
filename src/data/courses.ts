@@ -1,7 +1,32 @@
 export interface Course {
   id: string;
   title: string;
-  instructor: string;
+  instructor:{
+    name: string;
+    profileImageUrl?: string;
+    profileSummary: string;
+    about: string;
+    featured?: boolean;
+    areasOfPractice: string[];
+    courtsOfPractice: string[];
+    experienceHighlights: string[];
+    pastRoles: {
+      title: string;
+      organization: string;
+      duration: string;
+    }[];
+    keyClients: {
+      name: string;
+      description: string;
+    }[];
+    education: {
+      degree: string;
+      institution: string;
+      year: string;
+    }[];
+    technicalSkills: string[];
+    languagesKnown: string[];
+  }
   duration: string;
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   category: string;

@@ -9,6 +9,7 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({ course }: CourseCardProps) => {
+  console.log(course);
   return (
     <Link to={`/courses/${course.id}`}>
       <Card className="h-full overflow-hidden card-hover">
@@ -29,7 +30,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
             </Badge>
           </div>
           <h3 className="text-lg font-semibold line-clamp-2 h-14">{course.title}</h3>
-          <p className="text-sm text-gray-500 mb-2">By {course.instructor}</p>
+          <p className="text-sm text-gray-500 mb-2">By {course.instructor.name}</p>
           <p className="text-sm text-gray-600 line-clamp-3 mb-4 h-18">{course.description}</p>
         </CardContent>
         <CardFooter className="p-4 pt-0 flex justify-between items-center border-t">
@@ -41,11 +42,11 @@ const CourseCard = ({ course }: CourseCardProps) => {
           <div className="font-bold">
             {course.discount ? (
               <div className="flex flex-col items-end">
-                <span className="text-academy-red line-through text-sm">${course.price}</span>
-                <span>${course.discount}</span>
+                <span className="text-academy-red line-through text-sm">₹{course.price}</span>
+                <span>₹{course.discount}</span>
               </div>
             ) : (
-              <span>${course.price}</span>
+              <span>₹{course.price}</span>
             )}
           </div>
         </CardFooter>

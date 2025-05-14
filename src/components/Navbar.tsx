@@ -67,7 +67,6 @@ const Navbar = () => {
             </SignedIn>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
