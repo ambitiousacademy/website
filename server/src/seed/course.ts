@@ -19,7 +19,7 @@ async function main() {
       assessmentDetails: `Theoretical exams, real-world drafting exercises, and case studies for a comprehensive evaluation.`,
       internshipDetails: `Top-performing students will be offered internships with reputed law firms or departments.`,
       price: 1000, // Add a default price or your desired value
-      image: 'https://www.freepik.com/free-photos-vectors/professional-courses', // Add a default image URL or your desired value
+      image: 'https://i.postimg.cc/rzXbyRvF/Certificate-Course-on-Drafting-and-Conveyance.jpg', // Add a default image URL or your desired value
       rating: 45, // Add a default rating or your desired value
       modules: {
         create: [
@@ -98,7 +98,7 @@ async function main() {
       assessmentDetails: `Weekly quizzes and assignments, case study-based evaluations, and a final assessment with MCQs and legal drafting.`,
       internshipDetails: `Top-performing students will get internships with reputed law and real estate firms.`,
       price: 1200,
-      image: 'https://example.com/rera-course-image.jpg', // Replace with a real image URL
+      image: 'https://i.postimg.cc/NFGNqcnJ/Certificate-Course-on-RERA-and-REAL-ESTATE-LAWS.jpg',
       rating: 48,
 
       modules: {
