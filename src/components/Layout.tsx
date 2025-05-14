@@ -1,8 +1,7 @@
-
-import { ReactNode } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import { useUser } from "@/contexts/UserContext";
+import { ReactNode } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { useUser } from '@/contexts/UserContext';
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const { isAuthenticated } = useUser();
-  
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />

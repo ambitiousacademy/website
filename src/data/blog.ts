@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -13,12 +12,13 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "supreme-court-term-review",
-    title: "2024 Supreme Court Term: Key Cases and Implications",
-    author: "Prof. Eleanor Bennett",
-    date: "April 2, 2025",
-    category: "Constitutional Law",
-    excerpt: "A comprehensive analysis of the most significant Supreme Court decisions from the 2024 term and their impact on constitutional jurisprudence.",
+    id: 'supreme-court-term-review',
+    title: '2024 Supreme Court Term: Key Cases and Implications',
+    author: 'Prof. Eleanor Bennett',
+    date: 'April 2, 2025',
+    category: 'Constitutional Law',
+    excerpt:
+      'A comprehensive analysis of the most significant Supreme Court decisions from the 2024 term and their impact on constitutional jurisprudence.',
     content: `
       <p>The Supreme Court's 2024 term has been marked by several landmark decisions that will significantly shape constitutional law for years to come. This article examines the most impactful cases and their broader implications for legal practitioners and the public.</p>
       
@@ -42,16 +42,18 @@ export const blogPosts: BlogPost[] = [
       
       <p>Legal practitioners should pay close attention to these evolving areas and prepare to adapt their strategies as the constitutional landscape continues to shift in response to modern challenges.</p>
     `,
-    image: "https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    featured: true
+    image:
+      'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+    featured: true,
   },
   {
-    id: "ai-legal-practice",
-    title: "Artificial Intelligence and the Future of Legal Practice",
-    author: "Tech Counsel Alex Wong",
-    date: "March 28, 2025",
-    category: "Legal Technology",
-    excerpt: "How AI is transforming legal research, document review, and predictive analysis - and what it means for tomorrow's legal practitioners.",
+    id: 'ai-legal-practice',
+    title: 'Artificial Intelligence and the Future of Legal Practice',
+    author: 'Tech Counsel Alex Wong',
+    date: 'March 28, 2025',
+    category: 'Legal Technology',
+    excerpt:
+      "How AI is transforming legal research, document review, and predictive analysis - and what it means for tomorrow's legal practitioners.",
     content: `
       <p>Artificial intelligence is rapidly transforming the legal profession, automating routine tasks and providing insights that were previously impossible to obtain. This article explores the current state of AI in legal practice and what practitioners can expect in coming years.</p>
       
@@ -80,16 +82,18 @@ export const blogPosts: BlogPost[] = [
       
       <p>Law schools and continuing legal education providers are increasingly incorporating legal technology training into their curricula. For practicing attorneys, investing time in understanding and adopting these tools is essential for remaining competitive in the evolving legal marketplace.</p>
     `,
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
-    featured: true
+    image:
+      'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+    featured: true,
   },
   {
-    id: "climate-litigation-trends",
-    title: "Climate Litigation: Trends and Strategies in Environmental Law",
-    author: "Dr. Rachel Green",
-    date: "March 15, 2025",
-    category: "Environmental Law",
-    excerpt: "An examination of the rising tide of climate change litigation and how it's reshaping environmental law practice.",
+    id: 'climate-litigation-trends',
+    title: 'Climate Litigation: Trends and Strategies in Environmental Law',
+    author: 'Dr. Rachel Green',
+    date: 'March 15, 2025',
+    category: 'Environmental Law',
+    excerpt:
+      "An examination of the rising tide of climate change litigation and how it's reshaping environmental law practice.",
     content: `
       <p>Climate change litigation has emerged as a powerful force in environmental law, with cases being filed against governments and corporations around the world. This article examines current trends and effective strategies in this rapidly evolving area of practice.</p>
       
@@ -118,15 +122,17 @@ export const blogPosts: BlogPost[] = [
       
       <p>Whether representing plaintiffs seeking climate justice or defendants managing climate risk, understanding the complex intersection of environmental science, policy, and law will be essential for effective advocacy in this growing field.</p>
     `,
-    image: "https://images.unsplash.com/photo-1621244328068-02254c9d88cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+    image:
+      'https://images.unsplash.com/photo-1621244328068-02254c9d88cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
   },
   {
-    id: "corporate-governance-esg",
-    title: "ESG Factors in Modern Corporate Governance",
-    author: "Dr. James Harrison",
-    date: "March 10, 2025",
-    category: "Corporate Law",
-    excerpt: "How environmental, social, and governance considerations are transforming corporate law and board responsibilities.",
+    id: 'corporate-governance-esg',
+    title: 'ESG Factors in Modern Corporate Governance',
+    author: 'Dr. James Harrison',
+    date: 'March 10, 2025',
+    category: 'Corporate Law',
+    excerpt:
+      'How environmental, social, and governance considerations are transforming corporate law and board responsibilities.',
     content: `
       <p>Environmental, Social, and Governance (ESG) factors have moved from the periphery to the center of corporate governance in recent years. This shift has significant implications for corporate attorneys, board advisors, and in-house counsel navigating the evolving landscape of corporate responsibility.</p>
       
@@ -162,6 +168,7 @@ export const blogPosts: BlogPost[] = [
       
       <p>As ESG continues to reshape corporate governance expectations, proactive legal counsel will play a critical role in helping boards navigate these complex issues while fulfilling their fiduciary obligations and meeting stakeholder expectations.</p>
     `,
-    image: "https://images.unsplash.com/photo-1589939705384-5133358508b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-  }
+    image:
+      'https://images.unsplash.com/photo-1589939705384-5133358508b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+  },
 ];

@@ -1,18 +1,10 @@
-import { ReactNode, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import {
-  Menu,
-  X,
-  Home,
-  BookOpen,
-  Newspaper,
-  Users,
-  Settings,
-} from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { SignOutButton } from "@clerk/clerk-react";
+import { ReactNode, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import { Menu, X, Home, BookOpen, Newspaper, Users, Settings } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { SignOutButton } from '@clerk/clerk-react';
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -23,11 +15,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   const location = useLocation();
 
   const navigationItems = [
-    { name: "Dashboard", icon: Home, path: "/admin" },
-    { name: "Courses", icon: BookOpen, path: "/admin/courses" },
-    { name: "Blog Posts", icon: Newspaper, path: "/admin/blog" },
-    { name: "Instructors", icon: Users, path: "/admin/instructors" },
-    { name: "Settings", icon: Settings, path: "/admin/settings" },
+    { name: 'Dashboard', icon: Home, path: '/admin' },
+    { name: 'Courses', icon: BookOpen, path: '/admin/courses' },
+    { name: 'Blog Posts', icon: Newspaper, path: '/admin/blog' },
+    { name: 'Instructors', icon: Users, path: '/admin/instructors' },
+    { name: 'Settings', icon: Settings, path: '/admin/settings' },
   ];
 
   return (
@@ -46,9 +38,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
               <SheetContent side="left" className="w-64">
                 <div className="flex flex-col gap-6 py-6">
                   <div className="px-2">
-                    <h2 className="text-xl font-semibold text-academy-teal">
-                      Admin Panel
-                    </h2>
+                    <h2 className="text-xl font-semibold text-academy-teal">Admin Panel</h2>
                   </div>
                   <nav className="flex flex-col gap-1">
                     {navigationItems.map((item) => (
@@ -57,8 +47,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                         to={item.path}
                         className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                           location.pathname === item.path
-                            ? "bg-gray-100 text-academy-teal"
-                            : "text-gray-700 hover:bg-gray-100"
+                            ? 'bg-gray-100 text-academy-teal'
+                            : 'text-gray-700 hover:bg-gray-100'
                         }`}
                       >
                         <item.icon className="h-4 w-4" />
@@ -74,13 +64,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
               alt="The Ambitious Academy Logo"
               className="h-10 w-auto"
             />
-            <span className="font-semibold text-lg text-academy-teal">
-              The Ambitious Academy
-            </span>
+            <span className="font-semibold text-lg text-academy-teal">The Ambitious Academy</span>
           </div>
 
           <div className="flex items-center gap-4 pr-10">
-            <SignOutButton >
+            <SignOutButton>
               <Button variant="outline" className="hidden md:flex">
                 Sign Out
               </Button>
@@ -94,9 +82,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         <aside className="hidden md:flex flex-col w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-4rem)]">
           <div className="flex flex-col gap-6 p-6">
             <div className="px-2">
-              <h2 className="text-xl font-semibold text-academy-teal">
-                Admin Panel
-              </h2>
+              <h2 className="text-xl font-semibold text-academy-teal">Admin Panel</h2>
             </div>
             <nav className="flex flex-col gap-1">
               {navigationItems.map((item) => (
@@ -105,8 +91,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                   to={item.path}
                   className={`flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     location.pathname === item.path
-                      ? "bg-gray-100 text-academy-teal"
-                      : "text-gray-700 hover:bg-gray-100"
+                      ? 'bg-gray-100 text-academy-teal'
+                      : 'text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   <item.icon className="h-4 w-4" />

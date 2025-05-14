@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Table,
   TableHeader,
@@ -6,12 +6,12 @@ import {
   TableHead,
   TableBody,
   TableCell,
-} from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+} from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   Dialog,
   DialogContent,
@@ -19,13 +19,13 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PlusCircle, Edit, Trash2 } from "lucide-react";
-import { courses } from "@/data/courses";
-import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+} from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { PlusCircle, Edit, Trash2 } from 'lucide-react';
+import { courses } from '@/data/courses';
+import { Switch } from '@/components/ui/switch';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 
 // Define our internal Course type for admin management
 interface AdminCourse {
@@ -52,7 +52,7 @@ interface AdminCourse {
 }
 
 const AdminCoursesPage = () => {
-  const [selectedTab, setSelectedTab] = useState("all");
+  const [selectedTab, setSelectedTab] = useState('all');
 
   const initialCourses: AdminCourse[] = courses.map((course) => {
     const adminCourse: AdminCourse = {
@@ -62,9 +62,7 @@ const AdminCoursesPage = () => {
         course.modules?.map((module) => ({
           ...module,
           lessons: module.lessons.map((lesson) =>
-            typeof lesson === "string"
-              ? { title: lesson, duration: "Unknown" }
-              : lesson
+            typeof lesson === 'string' ? { title: lesson, duration: 'Unknown' } : lesson
           ),
         })) || [],
     };
@@ -77,11 +75,11 @@ const AdminCoursesPage = () => {
   const { toast } = useToast();
 
   const filteredCourses =
-    selectedTab === "all"
+    selectedTab === 'all'
       ? coursesData
-      : selectedTab === "featured"
-      ? coursesData.filter((c) => c.featured)
-      : coursesData.filter((c) => !c.featured);
+      : selectedTab === 'featured'
+        ? coursesData.filter((c) => c.featured)
+        : coursesData.filter((c) => !c.featured);
 
   const handleSaveCourse = () => {
     if (!currentCourse) return;
@@ -104,10 +102,7 @@ const AdminCoursesPage = () => {
     setCurrentCourse(null);
   };
 
-  const handleFieldChange = (
-    field: string,
-    value: string | number | boolean
-  ) => {
+  const handleFieldChange = (field: string, value: string | number | boolean) => {
     if (!currentCourse) return;
     setCurrentCourse({
       ...currentCourse,
@@ -118,8 +113,8 @@ const AdminCoursesPage = () => {
   const handleDelete = (id: string) => {
     setCoursesData((prev) => prev.filter((course) => course.id !== id));
     toast({
-      title: "Course deleted",
-      description: "The course has been permanently removed.",
+      title: 'Course deleted',
+      description: 'The course has been permanently removed.',
     });
   };
 
@@ -128,20 +123,14 @@ const AdminCoursesPage = () => {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold">Courses</h1>
-          <p className="text-muted-foreground">
-            Manage and organize your courses
-          </p>
+          <p className="text-muted-foreground">Manage and organize your courses</p>
         </div>
         <Button className="flex items-center gap-2">
           <PlusCircle className="h-4 w-4" /> Add Course
         </Button>
       </div>
 
-      <Tabs
-        defaultValue="all"
-        value={selectedTab}
-        onValueChange={setSelectedTab}
-      >
+      <Tabs defaultValue="all" value={selectedTab} onValueChange={setSelectedTab}>
         <div className="flex items-center justify-between">
           <TabsList>
             <TabsTrigger value="all">All</TabsTrigger>
@@ -168,9 +157,7 @@ const AdminCoursesPage = () => {
                 <TableRow key={course.id}>
                   <TableCell>
                     {course.featured ? (
-                      <Badge className="bg-green-100 text-green-800 font-medium">
-                        Featured
-                      </Badge>
+                      <Badge className="bg-green-100 text-green-800 font-medium">Featured</Badge>
                     ) : (
                       <Badge variant="outline" className="font-normal">
                         No
@@ -193,18 +180,10 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleEditCourse(course)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleEditCourse(course)}>
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDelete(course.id)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleDelete(course.id)}>
                         <Trash2 className="h-4 w-4 text-red-500" />
                       </Button>
                     </div>
@@ -246,18 +225,10 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleEditCourse(course)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleEditCourse(course)}>
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDelete(course.id)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleDelete(course.id)}>
                         <Trash2 className="h-4 w-4 text-red-500" />
                       </Button>
                     </div>
@@ -299,18 +270,10 @@ const AdminCoursesPage = () => {
                   <TableCell>{course.duration}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleEditCourse(course)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleEditCourse(course)}>
                         <Edit className="h-4 w-4" />
                       </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDelete(course.id)}
-                      >
+                      <Button variant="ghost" size="icon" onClick={() => handleDelete(course.id)}>
                         <Trash2 className="h-4 w-4 text-red-500" />
                       </Button>
                     </div>
@@ -326,9 +289,7 @@ const AdminCoursesPage = () => {
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Edit Course</DialogTitle>
-            <DialogDescription>
-              Make changes to the course information here.
-            </DialogDescription>
+            <DialogDescription>Make changes to the course information here.</DialogDescription>
           </DialogHeader>
 
           {currentCourse && (
@@ -339,7 +300,7 @@ const AdminCoursesPage = () => {
                   <Input
                     id="title"
                     value={currentCourse.title}
-                    onChange={(e) => handleFieldChange("title", e.target.value)}
+                    onChange={(e) => handleFieldChange('title', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -347,9 +308,7 @@ const AdminCoursesPage = () => {
                   <Input
                     id="instructor"
                     value={currentCourse.instructor}
-                    onChange={(e) =>
-                      handleFieldChange("instructor", e.target.value)
-                    }
+                    onChange={(e) => handleFieldChange('instructor', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -358,9 +317,7 @@ const AdminCoursesPage = () => {
                     id="price"
                     type="number"
                     value={currentCourse.price.toString()}
-                    onChange={(e) =>
-                      handleFieldChange("price", parseFloat(e.target.value))
-                    }
+                    onChange={(e) => handleFieldChange('price', parseFloat(e.target.value))}
                   />
                 </div>
                 <div className="space-y-2">
@@ -368,9 +325,7 @@ const AdminCoursesPage = () => {
                   <Input
                     id="duration"
                     value={currentCourse.duration}
-                    onChange={(e) =>
-                      handleFieldChange("duration", e.target.value)
-                    }
+                    onChange={(e) => handleFieldChange('duration', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -378,7 +333,7 @@ const AdminCoursesPage = () => {
                   <Input
                     id="level"
                     value={currentCourse.level}
-                    onChange={(e) => handleFieldChange("level", e.target.value)}
+                    onChange={(e) => handleFieldChange('level', e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -386,7 +341,7 @@ const AdminCoursesPage = () => {
                   <Input
                     id="image"
                     value={currentCourse.image}
-                    onChange={(e) => handleFieldChange("image", e.target.value)}
+                    onChange={(e) => handleFieldChange('image', e.target.value)}
                   />
                 </div>
               </div>
@@ -396,9 +351,7 @@ const AdminCoursesPage = () => {
                 <Textarea
                   id="description"
                   value={currentCourse.description}
-                  onChange={(e) =>
-                    handleFieldChange("description", e.target.value)
-                  }
+                  onChange={(e) => handleFieldChange('description', e.target.value)}
                   rows={4}
                 />
               </div>
@@ -407,9 +360,7 @@ const AdminCoursesPage = () => {
                 <Switch
                   id="featured"
                   checked={currentCourse.featured}
-                  onCheckedChange={(checked) =>
-                    handleFieldChange("featured", checked)
-                  }
+                  onCheckedChange={(checked) => handleFieldChange('featured', checked)}
                 />
                 <Label htmlFor="featured">Featured Course</Label>
               </div>
@@ -425,8 +376,8 @@ const AdminCoursesPage = () => {
                 handleSaveCourse();
                 closeDialog();
                 toast({
-                  title: "Course updated",
-                  description: "Your changes have been saved successfully.",
+                  title: 'Course updated',
+                  description: 'Your changes have been saved successfully.',
                 });
               }}
             >

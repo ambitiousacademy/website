@@ -1,14 +1,8 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-  UserButton,
-} from "@clerk/clerk-react";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from '@clerk/clerk-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +13,21 @@ const Navbar = () => {
 
   const NavLinks = () => (
     <>
-      <Link to="/" className="text-gray-700 font-medium hover:text-academy-teal">Home</Link>
-      <Link to="/courses" className="text-gray-700 font-medium hover:text-academy-teal">Courses</Link>
-      <Link to="/about" className="text-gray-700 font-medium hover:text-academy-teal">About</Link>
-      <Link to="/blog" className="text-gray-700 font-medium hover:text-academy-teal">Blog</Link>
-      <Link to="/contact" className="text-gray-700 font-medium hover:text-academy-teal">Contact</Link>
+      <Link to="/" className="text-gray-700 font-medium hover:text-academy-teal">
+        Home
+      </Link>
+      <Link to="/courses" className="text-gray-700 font-medium hover:text-academy-teal">
+        Courses
+      </Link>
+      <Link to="/about" className="text-gray-700 font-medium hover:text-academy-teal">
+        About
+      </Link>
+      <Link to="/blog" className="text-gray-700 font-medium hover:text-academy-teal">
+        Blog
+      </Link>
+      <Link to="/contact" className="text-gray-700 font-medium hover:text-academy-teal">
+        Contact
+      </Link>
     </>
   );
 
@@ -57,7 +61,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <UserButton />
                 <SignOutButton>
-                  <Button variant="outline"  >Sign Out</Button>
+                  <Button variant="outline">Sign Out</Button>
                 </SignOutButton>
               </div>
             </SignedIn>

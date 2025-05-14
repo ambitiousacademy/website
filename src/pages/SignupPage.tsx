@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { SignIn } from "@clerk/clerk-react";
-import { BookOpen, Award, Users } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { SignIn } from '@clerk/clerk-react';
+import { BookOpen, Award, Users } from 'lucide-react';
 
 const SignupPage = () => {
   return (
@@ -14,17 +14,15 @@ const SignupPage = () => {
               alt="The Ambitious Academy Logo"
               className="h-12 w-auto"
             />
-            <span className="ml-3 text-xl font-bold text-white">
-              The Ambitious Academy
-            </span>
+            <span className="ml-3 text-xl font-bold text-white">The Ambitious Academy</span>
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-6">
             Join Our Community of Legal Professionals
           </h1>
           <p className="text-lg mb-8 text-gray-300">
-            Create your account to access specialized legal education taught by
-            practicing attorneys and renowned professors.
+            Create your account to access specialized legal education taught by practicing attorneys
+            and renowned professors.
           </p>
 
           <div className="space-y-6 mt-12">
@@ -33,12 +31,8 @@ const SignupPage = () => {
                 <BookOpen className="h-6 w-6 text-academy-teal" />
               </div>
               <div>
-                <h3 className="font-semibold text-start text-white ">
-                  Expert-Led Courses
-                </h3>
-                <p className="text-gray-300">
-                  Learn from practicing attorneys and legal experts
-                </p>
+                <h3 className="font-semibold text-start text-white ">Expert-Led Courses</h3>
+                <p className="text-gray-300">Learn from practicing attorneys and legal experts</p>
               </div>
             </div>
 
@@ -47,9 +41,7 @@ const SignupPage = () => {
                 <Award className="h-6 w-6 text-academy-orange" />
               </div>
               <div>
-                <h3 className="font-semibold text-start text-white">
-                  Practical Skills Focus
-                </h3>
+                <h3 className="font-semibold text-start text-white">Practical Skills Focus</h3>
                 <p className="text-gray-300">
                   Develop applicable skills for immediate use in legal practice
                 </p>
@@ -61,20 +53,15 @@ const SignupPage = () => {
                 <Users className="h-6 w-6 text-academy-teal" />
               </div>
               <div>
-                <h3 className="font-semibold text-start text-white">
-                  Supportive Community
-                </h3>
-                <p className="text-gray-300">
-                  Connect with peers and mentors in the legal field
-                </p>
+                <h3 className="font-semibold text-start text-white">Supportive Community</h3>
+                <p className="text-gray-300">Connect with peers and mentors in the legal field</p>
               </div>
             </div>
           </div>
           <div className="mt-12 pt-6 border-t border-gray-700  mx-auto text-center">
             <p className="text-sm text-gray-400">
-              "The Ambitious Academy has been instrumental in advancing my legal
-              career. The courses are practical, relevant, and taught by true
-              experts in the field."
+              "The Ambitious Academy has been instrumental in advancing my legal career. The courses
+              are practical, relevant, and taught by true experts in the field."
             </p>
             <div className="flex items-center justify-center gap-4">
               <div className="mt-4 flex items-center justify-center">
@@ -82,9 +69,7 @@ const SignupPage = () => {
                   DD
                 </div>
                 <div className="ml-3">
-                  <p className="font-medium text-white">
-                    Mr. Devashish Dwivedi
-                  </p>
+                  <p className="font-medium text-white">Mr. Devashish Dwivedi</p>
                   <p className="text-sm text-gray-400">Co-Founder</p>
                 </div>
               </div>
@@ -110,16 +95,12 @@ const SignupPage = () => {
             alt="The Ambitious Academy Logo"
             className="h-10 w-auto"
           />
-          <span className="ml-3 text-xl font-bold text-gray-900">
-            The Ambitious Academy
-          </span>
+          <span className="ml-3 text-xl font-bold text-gray-900">The Ambitious Academy</span>
         </div>
 
         <div className="w-full max-w-md flex items-center justify-center flex-col">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
-              SignUp to Your Account
-            </h2>
+            <h2 className="text-2xl font-bold text-gray-900">SignUp to Your Account</h2>
             <p className="text-gray-600 mt-2">
               Join thousands of legal professionals advancing their careers
             </p>
@@ -128,11 +109,11 @@ const SignupPage = () => {
           <SignIn />
 
           <div className="mt-12 text-center text-xs text-gray-500">
-            By creating an account, you agree to our{" "}
+            By creating an account, you agree to our{' '}
             <Link to="/terms" className="underline hover:text-academy-teal">
               Terms of Service
-            </Link>{" "}
-            and{" "}
+            </Link>{' '}
+            and{' '}
             <Link to="/privacy" className="underline hover:text-academy-teal">
               Privacy Policy
             </Link>

@@ -1,6 +1,5 @@
-
-import { Card, CardContent } from "@/components/ui/card";
-import { Instructor } from "@/data/instructors";
+import { Card, CardContent } from '@/components/ui/card';
+import { Instructor } from '@/data/instructors';
 
 interface InstructorCardProps {
   instructor: Instructor;
@@ -21,10 +20,7 @@ const InstructorCard = ({ instructor }: InstructorCardProps) => {
         <p className="text-sm text-academy-teal mb-2">{instructor.title}</p>
         <div className="flex flex-wrap gap-1 mb-3">
           {instructor.specializations.map((spec) => (
-            <span 
-              key={spec} 
-              className="text-xs bg-gray-100 px-2 py-1 rounded-full"
-            >
+            <span key={spec} className="text-xs bg-gray-100 px-2 py-1 rounded-full">
               {spec}
             </span>
           ))}

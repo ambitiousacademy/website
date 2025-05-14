@@ -1,5 +1,4 @@
-
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -8,21 +7,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
             <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/815cd29c-446f-40f0-b61d-5257a5640d0e.png" 
-                alt="The Ambitious Academy Logo" 
+              <img
+                src="/lovable-uploads/815cd29c-446f-40f0-b61d-5257a5640d0e.png"
+                alt="The Ambitious Academy Logo"
                 className="h-10 w-auto"
               />
             </Link>
             <p className="mt-4 text-sm text-gray-300">
-              Empowering legal professionals with cutting-edge education and practical skills for the modern legal landscape.
+              Empowering legal professionals with cutting-edge education and practical skills for
+              the modern legal landscape.
             </p>
           </div>
-          
+
           <div>
-            <h3 className="text-sm font-bold text-white tracking-wider uppercase">
-              Programs
-            </h3>
+            <h3 className="text-sm font-bold text-white tracking-wider uppercase">Programs</h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link to="/courses" className="text-gray-300 hover:text-white">
@@ -30,7 +28,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/courses?category=constitutional" className="text-gray-300 hover:text-white">
+                <Link
+                  to="/courses?category=constitutional"
+                  className="text-gray-300 hover:text-white"
+                >
                   Constitutional Law
                 </Link>
               </li>
@@ -46,11 +47,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-sm font-bold text-white tracking-wider uppercase">
-              About Us
-            </h3>
+            <h3 className="text-sm font-bold text-white tracking-wider uppercase">About Us</h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-white">
@@ -74,7 +73,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-sm font-bold text-white tracking-wider uppercase">
               Connect With Us
@@ -87,12 +86,16 @@ const Footer = () => {
                 <span className="text-gray-300">Phone: </span>
               </li>
               <li className="flex items-center">
-                <span className="text-gray-300">Anand Nagar<br />Bhopal</span>
+                <span className="text-gray-300">
+                  Anand Nagar
+                  <br />
+                  Bhopal
+                </span>
               </li>
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} The Ambitious Academy. All rights reserved.
