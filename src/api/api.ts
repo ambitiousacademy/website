@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "@/lib/credentials"
+
 interface Module {
     id: string
     title: string
@@ -65,7 +67,6 @@ interface Module {
     featured?: boolean
   }
   
-  const API_BASE_URL = "http://localhost:3000"
   
   /**
    * API service for The Ambitious Academy

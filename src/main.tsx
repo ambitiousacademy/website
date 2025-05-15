@@ -3,8 +3,8 @@ import App from './App.tsx';
 import './index.css';
 import { ClerkProvider } from '@clerk/clerk-react';
 import React from 'react';
+import { PUBLISHABLE_KEY } from './lib/credentials.ts';
 
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');

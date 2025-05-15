@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "@/lib/credentials";
 
 interface Module {
   id: string;
@@ -64,7 +65,6 @@ interface Course {
   students: number;
 }
 
-const API_BASE_URL = "http://localhost:3000";
 
 export default function CoursesPage() {
   const navigate = useNavigate();

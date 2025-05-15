@@ -9,6 +9,7 @@ import { CheckCircle, Clock, Users, BookOpen, Award, ArrowLeft, Briefcase, Gradu
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useParams } from "react-router-dom"
+import { API_BASE_URL } from "@/lib/credentials"
 
 interface Module {
   id: string
@@ -100,7 +101,6 @@ interface Mentor {
   updatedAt: string
 }
 
-const API_BASE_URL =  "http://localhost:3000"
 
 export default function CourseDetailPage() {
   const params = useParams()

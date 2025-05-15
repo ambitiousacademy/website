@@ -143,7 +143,6 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
-const API_BASE_URL = "http://localhost:3000";
 
 export default function Index() {
   const [courses, setCourses] = useState<Course[]>([]);
