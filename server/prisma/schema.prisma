@@ -16,7 +16,7 @@ model Course {
   description       String
   importance        String
   duration          String
-  featured         Boolean   @default(false)
+  featured          Boolean  @default(false)
   price             Int
   discount          Int?
   image             String
@@ -39,6 +39,7 @@ model Feedback {
   email                 String
   contactNumber         String
   feedbackFor           String // Feedback for panel discussion
+  feedbackText          String // Detailed feedback text
   panelDiscussionRating Int // Rating for the panel discussion (can be an integer scale, e.g., 1-5)
   collegeAndCourse      String // College and course enrolled
   createdAt             DateTime @default(now()) // Date when feedback is created

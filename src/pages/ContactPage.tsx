@@ -70,7 +70,7 @@ const ContactPage = () => {
                 </div>
                 <div className="ml-4">
                   <p className="font-medium">Email</p>
-                  <p className="text-gray-600">info@ambitiousacademy.com</p>
+                  <p className="text-gray-600">theambitiousacademy.taa@gmail.com</p>
                 </div>
               </div>
 
@@ -80,7 +80,7 @@ const ContactPage = () => {
                 </div>
                 <div className="ml-4">
                   <p className="font-medium">Phone</p>
-                  <p className="text-gray-600"></p>
+                  <p className="text-gray-600">+91- 8818880220</p>
                 </div>
               </div>
 
