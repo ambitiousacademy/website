@@ -4,6 +4,7 @@ import { api } from "@/api/api"
 import type { Mentor } from "./Index"
 import { Button } from "@/components/ui/button"
 import { ChevronDown } from "lucide-react"
+import Layout from "@/components/Layout"
 
 const scrollbarHideStyle = `
   .scrollbar-hide::-webkit-scrollbar {
@@ -81,7 +82,7 @@ const AboutPage = () => {
   const featuredInstructors = mentors.filter((mentor) => mentor.featured)
 
   return (
-    <div>
+    <Layout>
       <style>
         {scrollbarHideStyle}
       </style>
@@ -645,7 +646,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-    </div>
+    </Layout>
   )
 }
 
