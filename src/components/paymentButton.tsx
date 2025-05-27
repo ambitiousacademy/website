@@ -1,4 +1,4 @@
-import { RAZORPAY_ID } from "@/lib/credentials";
+import { API_BASE_URL, RAZORPAY_ID } from "@/lib/credentials";
 import { useRazorpay, RazorpayOrderOptions } from "react-razorpay";
 import { toast } from "sonner";
 
@@ -18,7 +18,7 @@ export default function ProceedButton({ price, userDetails, course }: ProceedBut
 
     const handlePayment = async () => {
         try {
-            const response = await fetch("http://localhost:3000/payment/create-order", {
+            const response = await fetch(`${API_BASE_URL}/payment/create-order`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function ProceedButton({ price, userDetails, course }: ProceedBut
                 order_id: order.id,
                 handler: async (response) => {
                     try {
-                        const verifyResponse = await fetch("http://localhost:3000/payment/verify-payment", {
+                        const verifyResponse = await fetch(`${API_BASE_URL}/payment/verify-payment`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export default function ProceedButton({ price, userDetails, course }: ProceedBut
                         const verifyResult = await verifyResponse.json();
                         if (verifyResult.message === "success") {
                             toast("Payment successful!");
-                            const saveUser = await fetch("http://localhost:3000/payment/user", {
+                            const saveUser = await fetch(`${API_BASE_URL}/payment/user`, {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json",
