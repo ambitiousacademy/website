@@ -23,7 +23,7 @@ export default function ProceedButton({ price, userDetails, course }: ProceedBut
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ amount: 1 * 100, course }), // Include course
+                body: JSON.stringify({ amount: price * 100, course }), // Include course
             });
 
             const order = await response.json();
