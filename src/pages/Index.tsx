@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import CourseCard from "@/components/CourseCard";
-import BlogCard from "@/components/BlogCard";
 import InstructorCard from "@/components/InstructorCard";
 import { SignedIn, SignedOut, SignUpButton } from "@clerk/clerk-react";
 import { api } from "@/api/api";
@@ -459,11 +458,11 @@ export default function Index() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
