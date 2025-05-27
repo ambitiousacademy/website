@@ -43,7 +43,8 @@ const CourseCard = ({ course }: CourseCardProps) => {
             {course.discount ? (
               <div className="flex flex-col items-end">
                 <span className="text-academy-red line-through text-sm">₹{course.price}</span>
-                <span>₹{course.discount}</span>
+
+                <span>₹{course.price - (course.price * course.discount) / 100}</span>
               </div>
             ) : (
               <span>₹{course.price}</span>
@@ -51,7 +52,7 @@ const CourseCard = ({ course }: CourseCardProps) => {
           </div>
         </CardFooter>
       </Card>
-    </Link>
+    </Link >
   );
 };
 

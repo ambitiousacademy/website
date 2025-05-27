@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import courseRoutes from './routes/course';
 import mentorRoutes from './routes/mentor';
 import feedbackRoutes from './routes/feedback';
+import paymentRoutes from './routes/payment'
 dotenv.config();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use('/courses', courseRoutes);
 app.use('/mentors', mentorRoutes);
 app.use('/feedback', feedbackRoutes);
+app.use('/payment', paymentRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

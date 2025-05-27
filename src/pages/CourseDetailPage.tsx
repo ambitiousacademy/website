@@ -10,6 +10,10 @@ import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useParams } from "react-router-dom"
 import { API_BASE_URL } from "@/lib/credentials"
+import { useSession } from "@clerk/clerk-react"
+import { toast } from "sonner"
+import PaymentForm from "@/components/PaymentForm"
+import CourseEnrollment from "@/components/PaymentForm"
 
 interface Module {
   id: string
@@ -105,7 +109,7 @@ interface Mentor {
 export default function CourseDetailPage() {
   const params = useParams()
   const courseId = params.id as string
-
+  const session = useSession()
   const [course, setCourse] = useState<Course | null>(null)
   const [loading, setLoading] = useState(true)
   const [mentorLoading, setMentorLoading] = useState(true)
@@ -135,8 +139,14 @@ export default function CourseDetailPage() {
     }
   }, [courseId])
 
- 
-  
+  function Enroll() {
+    if (!session.isSignedIn) {
+      toast.error("Please sign in to enroll in this course.")
+    }
+
+  }
+
+
   const finalPrice = course?.discount ? course.price - (course.price * course.discount) / 100 : course?.price
 
   if (loading) {
@@ -227,9 +237,7 @@ export default function CourseDetailPage() {
                       </div>
                     )}
                   </div>
-                  <Button className="w-full bg-academy-teal hover:bg-academy-teal/90 text-white mb-4">
-                    Enroll Now
-                  </Button>
+                  <CourseEnrollment finalPrice={finalPrice} course={course.title} />
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-academy-teal mr-2 flex-shrink-0 mt-0.5" />
